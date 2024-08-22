@@ -1,14 +1,8 @@
-cmake_minimum_required(VERSION 2.8.3)
-project(chris)
+add_executable(simulator
+    simulator.cpp
+    grid_map.cpp
+    world_item.cpp
+    lidar.cpp)
 
-#set(CMAKE_BUILD_TYPE Release)
-set(CMAKE_BUILD_TYPE Debug)
-
-set(CXX_STANDARD c++17)
-
-include_directories(/usr/include/eigen3)
-find_package(OpenCV REQUIRED)
-
-include_directories(${OpenCV_INCLUDE_DIRS})
-
-add_subdirectory(src)
+target_link_libraries(simulator
+    ${OpenCV_LIBS})
